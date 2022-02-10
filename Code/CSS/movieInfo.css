@@ -1,0 +1,109 @@
+body{
+  background-color: rgb(60, 60, 60);
+}
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.top, .top>div{
+  display: inline-block;
+  min-width: 0;
+}
+
+.img img{
+  width: 24vw;
+  height: 35vh;
+  margin-left: 3vw;
+  margin-right: 1vw;
+}
+
+.video iframe{
+  height: 35vh;
+  width: 65vw;
+  margin-right: 3vw;
+}
+
+.Main{
+  display: flex;
+  flex-wrap: wrap;
+  height: max-content;
+  margin-top: 1vh;
+  margin-right: 1vw;
+  margin-left: 4.5vw;
+  width: 90vw;
+  color: white;
+}
+
+.Main .tags{
+  margin: 2px;
+}
+
+.Main_left{
+  border: 1px solid white;
+  width: 75%;
+
+  margin: 5px;
+}
+
+.Main_right{
+  justify-self: end;
+  border: 1px solid white;
+  width: 20%;
+
+  float: right;
+  margin: 5px;
+}
+
+.Main_right div {
+  text-align: center;
+  height: max-content;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid white;
+}
+
+.casting{
+  display: flex;
+  flex-wrap: wrap;
+  height: max-content;
+  margin-top: 1vh;
+  margin-right: 1vw;
+  margin-left: 4.5vw;
+  width: 90vw;
+  color: white;
+}
+
+.cast_left{
+  border: 1px solid white;
+  width: 75%;
+  height: inherit;
+  margin: 5px;
+}
+
+.cast_right{
+  justify-self: end;
+  border: 1px solid white;
+  width: 20%;
+  height: inherit;
+  float: right;
+  margin: 5px;
+}
+
+.cast_left div {
+  text-align: center;
+  height: 20%;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid white;
+}
+
+h1{
+  text-align: center;
+}
