@@ -6,6 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/movieInfo.css">
+    <script src="../JavaScript/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.tagbtn').click(function(){
+                var clickBtnValue = $(this).text();
+                var ajaxurl = `movieTag.php?tag=${clickBtnValue}`,
+                data =  {'action': clickBtnValue};
+                window.location.href = ajaxurl;
+            });
+        });
+    </script>
     <title>Movie Info</title>
 </head>
 
@@ -48,16 +59,18 @@
                 <?php echo $movie["MovieName"]; ?>
             </h1>
 
-            <div>
+            <span>
                 <?php
                 foreach ($tagsList as $key => $value) {
                     $tagsList[$key] = $tagsList[$key]["TagName"];
-                    echo "<div>";
+                    echo '<button type="button" class="btn tagbtn">';
+
                     print_r($tagsList[$key]);
-                    echo "</div>";
+                    
+                    echo "</button>";
                 }
                 ?>
-            </div>
+            </span>
 
             <p>
                 <?php echo $movie["Description"]; ?>

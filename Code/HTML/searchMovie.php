@@ -15,6 +15,7 @@
     <title>search</title>
 </head>
 
+
 <body>
     <form action="result.php" method="get">
         <div id="searchBox">
@@ -293,6 +294,9 @@
     }
     ?>
 
+<?php
+include('chatbot.html');
+?>
 </body>
 
 </html>
