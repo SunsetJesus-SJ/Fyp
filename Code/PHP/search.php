@@ -18,6 +18,20 @@ function closeDBconnection($conn)
     mysqli_close($conn);
 }
 
+function getMovieByTag($tag){
+    $conn =  getDBconnection();
+    $sql = 'SELECT movie.MovieID,movie.MovieName,movie.Description,movie.Image,movie.video_url FROM movie INNER JOIN movierate INNER JOIN languagestable INNER JOIN movietype INNER JOIN versiontable INNER JOIN movietag INNER JOIN tagtable WHERE movie.MovieRating = movierate.RateID AND movietag.TagID = tagtable.TagID AND movie.MovieID = movietag.MovieID AND tagtable.TagName = ' . '"' .$tag . '"';
+    $rs1 = mysqli_query($conn, $sql) or die('<div>SQL command fail</br>' . mysqli_error($conn) . '</div>');
+    $num = mysqli_num_rows($rs1);
+    if ($num == 0) {
+        echo "Number of records selected = $num <br>";
+    } else {
+        closeDBconnection($conn);
+        return $rs1;
+    }
+    return $rs1;
+}
+
 function search($movieName, $year, $month, $movieRating, $type, $Duration, $Version, $Languages)
 {
     $conn =  getDBconnection();
