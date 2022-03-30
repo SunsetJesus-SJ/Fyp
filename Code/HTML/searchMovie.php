@@ -20,8 +20,9 @@
     <form action="result.php" method="get">
         <div id="searchBox">
             <div class="input-group mb-3">
+                
                 <input type="text" name="movieName" class="form-control form-control-lg" placeholder="Search Here">
-                <button type="submit" class="input-group-text btn-success"><i class="bi bi-search me-2"></i> Search</button>
+                <button type="submit" class="input-group-text btn-success"><i class="fa fa-search"></i> Search</button>
             </div>
         </div>
 
@@ -29,7 +30,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class='fa fa-sliders'></i> Search Filter
+                         Search Filter
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">

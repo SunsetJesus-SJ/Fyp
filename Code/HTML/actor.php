@@ -19,9 +19,9 @@
     <script src="../JavaScript/jquery-3.6.0.js"></script>
     <script>
         $(document).ready(function(){
-            $('.tagbtn').click(function(){
+            $('.actbtn').click(function(){
                 var clickBtnValue = $(this).text();
-                var ajaxurl = `movieTag.php?tag=${clickBtnValue}`,
+                var ajaxurl = `actor.php?actName=${clickBtnValue}`,
                 data =  {'action': clickBtnValue};
                 window.location.href = ajaxurl;
             });
@@ -35,24 +35,18 @@ include "../PHP/search.php";
 function get(){
     $getData = [];
     $getData = $_GET;
-    $tag = $getData["tag"];
+    $actName = $getData["actName"];
 
-    $list = getMovieByTag($tag);
+    $list = getMovieByActor($actName);
     $html = <<<EOD
     <table class="table table-success table-striped">
-        <legend>Tag: {$tag}</legend>
+        <legend>Actor: {$actName}</legend>
         <thead>
         <tr>
-            <th scope="col">Tag</th>
-            <th scope="col">{$tag}</th>
+            <th scope="col">Actor Name</th>
+            <th scope="col">{$actName}</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <th scope="row" >Tag Description</th>
-            <td id="description">Placeholder</td>
-        </tr>
-        </tbody>
     </table>
 EOD;
 echo $html;
@@ -76,7 +70,7 @@ echo $html;
 
     <script>
         $(document).ready(function(){
-            document.getElementById("description").innerHTML = '<?php echo $description ?>';
+            document.getElementById("description").innerHTML = '<?php echo $information ?>';
         });
     </script>
 
@@ -92,18 +86,18 @@ echo $html;
                         <p class="card-text"><small class="text-muted"> <a href="movieInfo.php?id=<?php echo $MovieID ?>">Click here to know more detail</a> </small></p>
                         
                         <?php
-                            $tags = getMovieTag($MovieID);
-                            $tag = [];
-                            while ($rc = mysqli_fetch_assoc($tags)) {
+                            $actors = getMovieActor($MovieID);
+                            $actorsList = [];
+                            while ($rc = mysqli_fetch_assoc($actors)) {
                                 extract($rc);
 
-                                if(in_array($TagName, $tag)) {
+                                if(in_array($actorName, $actorsList)) {
                                     continue;
                                 }else{
-                                    array_push($tag, $TagName);
+                                    array_push($actorsList, $actorName);
                                 echo '<button type="button" class="btn btn-success tagbtn                                                                                       ">';
             
-                                print_r($TagName);
+                                print_r($actorName);
                                 
                                 echo "</button>";
                                 }
@@ -120,9 +114,6 @@ echo $html;
         }
     }
     ?>
-    <?php
-include('chatbot.html');
-?>
 
 </body>
 

@@ -18,9 +18,51 @@ function closeDBconnection($conn)
     mysqli_close($conn);
 }
 
+function getMovieTag($id){
+    $conn =  getDBconnection();
+    $sql = 'SELECT tagtable.TagName FROM movie INNER JOIN movierate INNER JOIN languagestable INNER JOIN movietype INNER JOIN versiontable INNER JOIN movietag INNER JOIN tagtable WHERE movietag.TagID = tagtable.TagID AND movie.MovieID = movietag.MovieID AND movie.MovieID = ' . '"' .$id . '"';
+    $rs1 = mysqli_query($conn, $sql) or die('<div>SQL command fail</br>' . mysqli_error($conn) . '</div>');
+    $num = mysqli_num_rows($rs1);
+    if ($num == 0) {
+        echo "Number of records selected = $num <br>";
+    } else {
+        closeDBconnection($conn);
+        return $rs1;
+    }
+    return $rs1;
+}
+
 function getMovieByTag($tag){
     $conn =  getDBconnection();
-    $sql = 'SELECT movie.MovieID,movie.MovieName,movie.Description,movie.Image,movie.video_url FROM movie INNER JOIN movierate INNER JOIN languagestable INNER JOIN movietype INNER JOIN versiontable INNER JOIN movietag INNER JOIN tagtable WHERE movie.MovieRating = movierate.RateID AND movietag.TagID = tagtable.TagID AND movie.MovieID = movietag.MovieID AND tagtable.TagName = ' . '"' .$tag . '"';
+    $sql = 'SELECT movie.MovieID,movie.MovieName,movie.Description,movie.Image,movie.video_url,tagtable.description FROM movie INNER JOIN movierate INNER JOIN languagestable INNER JOIN movietype INNER JOIN versiontable INNER JOIN movietag INNER JOIN tagtable WHERE movie.MovieRating = movierate.RateID AND movietag.TagID = tagtable.TagID AND movie.MovieID = movietag.MovieID AND tagtable.TagName = ' . '"' .$tag . '"';
+    $rs1 = mysqli_query($conn, $sql) or die('<div>SQL command fail</br>' . mysqli_error($conn) . '</div>');
+    $num = mysqli_num_rows($rs1);
+    if ($num == 0) {
+        echo "Number of records selected = $num <br>";
+    } else {
+        closeDBconnection($conn);
+        return $rs1;
+    }
+    return $rs1;
+}
+
+function getMovieActor($id){
+    $conn =  getDBconnection();
+    $sql = 'SELECT actor.actorName FROM movie INNER JOIN movierate INNER JOIN languagestable INNER JOIN movietype INNER JOIN versiontable INNER JOIN actor INNER JOIN moviecast WHERE actor.actorID = moviecast.actorID AND movie.MovieID = moviecast.MovieID AND movie.MovieID = ' . '"' .$id . '"';
+    $rs1 = mysqli_query($conn, $sql) or die('<div>SQL command fail</br>' . mysqli_error($conn) . '</div>');
+    $num = mysqli_num_rows($rs1);
+    if ($num == 0) {
+        echo "Number of records selected = $num <br>";
+    } else {
+        closeDBconnection($conn);
+        return $rs1;
+    }
+    return $rs1;
+}
+
+function getMovieByActor($actName){
+    $conn =  getDBconnection();
+    $sql = 'SELECT movie.MovieID,movie.MovieName,movie.Description,movie.Image,movie.video_url,actor.actorName FROM movie INNER JOIN movierate INNER JOIN languagestable INNER JOIN movietype INNER JOIN versiontable INNER JOIN actor INNER JOIN moviecast WHERE movie.MovieRating = movierate.RateID AND actor.actorID = moviecast.actorID AND movie.MovieID = moviecast.MovieID AND actor.actorName = ' . '"' .$actName . '"';
     $rs1 = mysqli_query($conn, $sql) or die('<div>SQL command fail</br>' . mysqli_error($conn) . '</div>');
     $num = mysqli_num_rows($rs1);
     if ($num == 0) {
@@ -38,7 +80,7 @@ function search($movieName, $year, $month, $movieRating, $type, $Duration, $Vers
     $sql = 'SELECT movie.MovieID,movie.MovieName,movie.Description,movie.Image,movie.video_url FROM movie INNER JOIN movierate INNER JOIN languagestable INNER JOIN movietype INNER JOIN versiontable WHERE movie.MovieRating = movierate.RateID';
 
     if (!$movieName == "" || !$movieName == "none" && !$movieName == "") {
-        $sql .= ' AND movie.MovieName LIKE "' . $movieName . '"';
+        $sql .= ' AND movie.MovieName LIKE "' . "%" . $movieName . "%" . '"';
     }
     if (!$year == "") {
         $sql .= ' AND YEAR(ReleaseDate) = ' . $year;

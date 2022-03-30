@@ -213,7 +213,7 @@
 
 .chat-form input,
 textarea,
-button {
+wrapper button {
     margin-bottom: 10px
 }
 
@@ -222,13 +222,13 @@ button {
 }
 
 .form-control:focus,
-.btn:focus {
+.chat-btn:focus {
     box-shadow: none
 }
 
-.btn,
-.btn:focus,
-.btn:hover {
+.chat-btn,
+.chat-btn:focus,
+.chat-btn:hover {
     background-color: blue;
     border: blue
 }

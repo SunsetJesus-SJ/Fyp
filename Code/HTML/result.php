@@ -23,6 +23,7 @@ include "../PHP/search.php";
 function get(){
     $getData = [];
     $getData = $_GET;
+    $searchType = $getData["movieName"];
     $movieName = $getData["movieName"];
     $year = $getData["year"];
     $month = $getData["month"];
@@ -115,6 +116,9 @@ echo $html;
         }
     }
     ?>
+    <?php
+include('chatbot.html');
+?>
 
 </body>
 

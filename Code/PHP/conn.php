@@ -9,4 +9,8 @@ function getDBconnection(){
     $conn = mysqli_connect($hostname, $username, $pwd, $db) or die(mysqli_connect_error()) or die(mysqli_connect_error());
     return $conn;
 }
+
+function closeDBconnection($conn){
+    mysqli_close($conn);
+}
 ?>
