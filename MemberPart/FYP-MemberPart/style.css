@@ -1,0 +1,175 @@
+
+@font-face {
+	font-family: 'QuicksandBook';
+	src: url('fonts/Quicksand_Book-webfont.eot');
+	src: url('fonts/Quicksand_Book-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Quicksand_Book-webfont.woff') format('woff'),
+		url('fonts/Quicksand_Book-webfont.ttf') format('truetype'),
+		url('fonts/Quicksand_Book-webfont.svg#QuicksandBook') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+	
+body {
+	background-color: #ffffff !important;
+	font-family: Georgia, "Times New Roman", Times, serif !important;
+	font-size: 90% !important;
+	margin: 0px !important;
+	text-align: center !important;
+}
+
+a {
+	color: #b5c1ad;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ffffff;
+
+}
+
+.header {
+	background-color: #F8F9FA;
+	padding: 0px 0px 0px 0px;
+	height: 100px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: 1;
+}
+
+.header2 {
+	background-color: #212529;
+	height: 50px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	padding: 0px 0px 0px 0px;
+	z-index: 2;
+}
+
+.nav {
+	float: right;
+	font-family: QuicksandBook, Helvetica, Arial, sans-serif;
+	padding: 45px 0px 0px 0px;
+	text-align: right;
+}
+	
+.wrapper {
+	width: 960px;
+	margin: 0px auto;
+	background-image: url("images/bg-triangle.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-align: left;
+}
+
+.logo {
+	margin-bottom: 20px;
+}
+
+h1, h2 {
+	font-family: QuicksandBook, Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+h1 {
+	font-size: 240%;
+	margin-top: 140px;
+}
+
+.date {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	color: #b5c1ad;
+}
+
+.footer {
+	clear: both;
+	background: rgba(0, 0, 0, 0.2);
+	padding: 5px 10px;
+}
+
+.footer p {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 75%;
+	text-align: right;
+}
+
+.footer a {
+	color: #807c72;
+}
+
+.menu {
+	position: -webkit-sticky;
+	position: sticky;
+	top : 50px;
+	left: 5000000000px;
+	color: #ffffff;
+}
+.icon{
+	position: -webkit-sticky;
+	text-align: left;
+}
+
+/* The side navigation menu */
+.sidenav {
+	height: 100%; /* 100% Full-height */
+	width: 0; /* 0 width - change this with JavaScript */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+	left: 0;
+	background-color: #111; /* Black*/
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 60px; /* Place content 60px from the top */
+	transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+	color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+	transition: margin-left .5s;
+	padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+}
+
+.Defaultblock {
+	background-color: #F8F9FA;
+	z-index: 6;
+	margin-top: 25px;
+	margin-left: 50px;
+	margin-right: 50px;
+	line-height: 1.8;
+	text-align: left;
+	color: black;
+}
