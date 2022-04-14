@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="http://www.w3schools.com/w3css/4/w3.css">
 
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <link rel="stylesheet" href="css/seat_plan1.css">
+    <link rel="stylesheet" href="css/seat_plan3.css">
 
 </head>
 
 <body class="w3-panel w3-black">
-
-    
 
     <div class="show_screen">
         <div class="screen">
@@ -23,9 +21,10 @@
 
 
     <div class="show_seat">
+
         <div class="seat_left">
             <script>
-                var rows = "ABCDEF";
+                var rows = "ABCDEFG";
 
                 for (i = 0; i < rows.length; i++) {
                     // document.write('<div class="w3-center">');
@@ -39,9 +38,11 @@
                     document.write('<br>');
                 }
             </script>
+            
         </div>
+        
 
-        <div class="seat_right">
+        <div class="seat_left-1">
             <script>
                 var rows = "ABCDEF";
 
@@ -58,6 +59,30 @@
                 }
             </script>
         </div>
+
+        
+
+
+
+        <div class="seat_center">
+            <script>
+                var rows = "ABC";
+
+                for (i = 0; i < rows.length; i++) {
+                    // document.write('<div class="w3-center">');
+                    for (j = 7; j <= 9; j++) {
+                        document.write('<div class="seatbox" id="', rows.charAt(i), j, '"',
+                            'onclick="toggle(this.id);"', '>',
+                            rows.charAt(i), j, '</div>&nbsp&nbsp&nbsp');
+                    }
+
+                    // document.write('</div>');
+                    // document.write('<br>');
+                }
+            </script>
+       
+        </div>
+        
     </div>
 
     <hr style="width: 500px; margin:auto">
@@ -77,20 +102,16 @@
         </div>
 
     </div>
-
     <!-- action="change_seat.php" -->
     <!-- action="payment.php" -->
-    <center>
-        <form class="form1" id="form1" name="form1" method="post" action="payment.php">
-        
-        <p>Selected seats : <span class="selectedSeatsID" id="selectedSeatsID"></span></p>
-        <input type="" name="seatsInForm" id="seatsInForm" style="display: none;"><br><br>
-        <!-- <input type="" id="result"><br><br> -->
-        <input class="next-btn" type="submit" id="submit" value="Confirm">
-        <!-- <input type="button" id="btnB" value="check" onclick="check()"> -->
+    <form id="form1" name="form1" method="post" action="payment.php">
+        <p>Gray = available &nbsp;&nbsp;&nbsp;Red = reserved</p>
+        <p>Selected seats : <span id="selectedSeatsID"></span></p>
+        <input type="" name="seatsInForm" id="seatsInForm"><br><br>
+        <input type="" id="result"><br><br>
+        <input type="submit" id="submit" value="Next">
+        <input type="button" id="btnB" value="check" onclick="check()">
     </form>
-    </center>
-    
 
     <!-- php -->
     <table border="1" id="seatTable">
@@ -191,16 +212,10 @@
         var seatRowA = "A";
         var seatRowB = "B";
         var seatRowC = "C";
-        var seatRowD = "D";
-        var seatRowE = "E";
-        var seatRowF = "F";
 
         var countA = 1;
         var countB = 7;
         var countC = 13;
-        var countD = 19;
-        var countE = 25;
-        var countF = 31;
 
         window.onload = function check() {
 
@@ -217,6 +232,7 @@
 
                 } else {
                     seatRowA = seatRowA + x;
+                    // document.getElementById(seatRowA).style.backgroundColor = 'red';
                     document.getElementById(seatRowA).id = 'occupied';
                     seatRowA = "A";
                     countA++;
@@ -236,6 +252,7 @@
 
                 } else {
                     seatRowB = seatRowB + y;
+                    // document.getElementById(seatRowB).style.backgroundColor = 'red';
                     document.getElementById(seatRowB).id = 'occupied';
                     seatRowB = "B";
                     countB++;
@@ -255,70 +272,14 @@
 
                 } else {
                     seatRowC = seatRowC + z;
+                    // document.getElementById(seatRowC).style.backgroundColor = 'red';
                     document.getElementById(seatRowC).id = 'occupied';
                     seatRowC = "C";
                     countC++;
                 }
 
             }
-
-            //D
-            for (z = 1; z <= 6; z++) {
-                if (document.getElementById("seatTable").rows[countD].cells[1].innerHTML == 'T') {
-
-                    seatRowD = seatRowD + z;
-                    document.getElementById(seatRowD).style.backgroundColor = 'gray';
-                    document.getElementById(seatRowD).style.cursor = "pointer";
-                    seatRowD = "D";
-                    countD++;
-
-                } else {
-                    seatRowD = seatRowD + z;
-                    document.getElementById(seatRowD).id = 'occupied';
-                    seatRowD = "D";
-                    countD++;
-                }
-
-            }
-
-            //E
-            for (z = 1; z <= 6; z++) {
-                if (document.getElementById("seatTable").rows[countE].cells[1].innerHTML == 'T') {
-
-                    seatRowE = seatRowE + z;
-                    document.getElementById(seatRowE).style.backgroundColor = 'gray';
-                    document.getElementById(seatRowE).style.cursor = "pointer";
-                    seatRowE = "E";
-                    countE++;
-
-                } else {
-                    seatRowE = seatRowE + z;
-                    document.getElementById(seatRowE).id = 'occupied';
-                    seatRowE = "E";
-                    countE++;
-                }
-
-            }
-
-            //F
-            for (z = 1; z <= 6; z++) {
-                if (document.getElementById("seatTable").rows[countF].cells[1].innerHTML == 'T') {
-
-                    seatRowF = seatRowF + z;
-                    document.getElementById(seatRowF).style.backgroundColor = 'gray';
-                    document.getElementById(seatRowF).style.cursor = "pointer";
-                    seatRowF = "F";
-                    countF++;
-
-                } else {
-                    seatRowF = seatRowF + z;
-                    document.getElementById(seatRowF).id = 'occupied';
-                    seatRowF = "F";
-                    countF++;
-                }
-
-            }
-
+            // document.getElementById("C1").style.backgroundColor = 'red';
         }
     </script>
 

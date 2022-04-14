@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="css/submit_seat.css">
+    <link rel="stylesheet" href="css/payment.css">
 </head>
 <script src="jslib/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="../seat_222/js/submit_seat.js"></script>
+<script type="text/javascript" src="../ticketing/js/submit_seat.js"></script>
 <script>
     function addLoadEvent(func) {
         var oldonload = window.onload;
@@ -163,6 +163,7 @@
                 </div>
                 <br>
                 <hr style="width: 900px;">
+
                 <br>
                 <div class="Info-box">
                     <div class="red-box"></div>
@@ -182,19 +183,23 @@
                         $str = json_decode($_POST['seatsInForm'], true);
                         $totalseat = count($str);
                         $amount = 0;
+                        $price = "price";
 
             
                         for ($x = 0; $x <= $totalseat-1; $x++ ) {
                             echo"&nbsp;";
+                            echo"&nbsp;";
                             echo $str[$x];
                             $id = $str[$x];
-                            echo"<select id=".$id." style='width: 50%; height: 10px; float: right;'>";
+                            echo"<select id=".$id." class=".$price." name=".$price." style='width: 50%; height: 40px; float: right;'>";
+                            echo"<option value='0'>---------</option>";
                             echo"<option value='110'>$100 Student + $10 service charge</option>";
                             echo"<option value='150'>$140 Adult + $10 service charge</option>";
                             echo"</select>";
                             echo"<br>";
                             echo"<br>";
-                            echo"<hr style='width: 300px; float: left'>";
+                            echo"<br>";
+                            echo"<hr style='width: 325px; float: left'>";
                             echo"<br>";
                         }
                     ?>
@@ -202,9 +207,12 @@
 
                 </div>
                 <br>
+
+                <div class="confirm-btn">
+
+                </div>
                 <div class="total-amount">
-                    <label class="label-amount" id="amount" value="1">Total amount :</label><br>
-                    <label id="lbltipAddedComment"></label>
+                    <label class="label-amount" id="amount" value="1">Total amount :</label>
                 </div>
                 <br>
                 <hr style="width: 900px;">
@@ -273,6 +281,16 @@
 			});
 			
 		});
+
+        // var selectedSeat = document.getElementById('seatform').value;
+        var selectedSeat = <?php echo json_encode($str);?>;
+
+
+        var amount = document.getElementById('A2').value;
+        
+        document.getElementById('amount').innerHTML = amount;
+       
+
     </script>
     
 </body>

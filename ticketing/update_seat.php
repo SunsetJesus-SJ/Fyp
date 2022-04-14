@@ -1,15 +1,17 @@
 <html>
 
 <head>
-	<title>Pass JS array to PHP.</title>
-	<script src="jslib/jquery-1.11.1.js"></script>
+    <title>Pass JS array to PHP.</title>
+    <script src="jslib/jquery-1.11.1.js"></script>
 
 </head>
-    
+
 <body>
     <?php
-        $str = json_decode($_POST['seatform'], true);
-        print_r($str);
+
+        var_dump($_POST);
+        // $str = json_decode($_POST['seatform'], true);
+        // print_r($str);
         // $conn = mysqli_connect("127.0.0.1", "root", "", "fyp_ticket")
         // or die(mysqli_connect_error());
         // extract($_POST);
@@ -30,5 +32,11 @@
     ?>
 
 </body>
+
+<script>
+    var selectedSeat = document.getElementById('seatform').value;
+    
+</script>
+
 
 </html>

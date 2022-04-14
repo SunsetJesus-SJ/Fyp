@@ -5,15 +5,15 @@ $(document).ready(function() {
         // $(".payment-method").css("display","none");
     });
     $(".label-2").click(function(){
-        $(".card-info").show();
+        $(".card-info").show("slow");
     }); 
 });
 
 // set array to store seats
-function amount(){
-    var total = 0;
-    document.getElementById('amount').value += 222;
-}
+// function amount(){
+//     var total = 0;
+//     document.getElementById('amount').value += 222;
+// }
 
 
 
