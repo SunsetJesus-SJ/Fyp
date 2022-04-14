@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/searchMovie.css">
+    <link rel="stylesheet" href="../CSS/navigation.css">
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -17,10 +18,13 @@
 
 
 <body>
-    <form action="result.php" method="get">
+    <?php
+    include '../HTML/navigation_bar.php';
+    ?>
+    <div class="bg">  
+    <form class="searchMovieForm" action="result.php" method="get">
         <div id="searchBox">
             <div class="input-group mb-3">
-                
                 <input type="text" name="movieName" class="form-control form-control-lg" placeholder="Search Here">
                 <button type="submit" class="input-group-text btn-success"><i class="fa fa-search"></i> Search</button>
             </div>
@@ -269,6 +273,17 @@
             </div>
         </div>
     </form>
+
+  
+    <div class="text-center">
+    <?php
+    if(isset($_COOKIE['viewMovie'])&isset($_COOKIE['likeMovie'])){
+        echo '<a class="btn btn-info" href="http://127.0.0.1:5000/recommend" role="button">Get Recommended movie</a>';
+        }
+    ?>
+        <a class="btn btn-info" href="newMovie.php" role="button">Get New Movie</a>
+    </div>
+
     <?php
     include "../PHP/getMovieList.php";
     $list = getMovieInfo();
@@ -283,18 +298,19 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $MovieName ?></h5>
-                        <p class="card-text"><?php echo $Description ?></p>
-                        <p class="card-text"><small class="text-muted"> <a href="movieInfo.php?id=<?php echo $MovieID ?>">Click here to know more detail</a> </small></p>
+                        <div class="text-center">
+                            <h5 class="card-title"><?php echo $MovieName ?></h5>
+                            <a class="btn btn-info" role="button" href="movieInfo.php?id=<?php echo $MovieID?>">Click here to know more detail</a>
+                            <p class="card-text"><?php echo $Description ?></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     <?php
     }
     ?>
-
+</div>
 <?php
 include('chatbot.html');
 ?>

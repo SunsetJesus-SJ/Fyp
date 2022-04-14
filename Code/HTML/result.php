@@ -36,10 +36,9 @@ function get(){
     $list = search($movieName,$year,$month,$movieRating,$type,$Duration,$Version,$Languages);
     $html = <<<EOD
     <table class="table table-success table-striped">
-        <legend>The result of follow data</legend>
         <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">The result of follow data</th>
             <th scope="col">Selected/Input</th>
         </tr>
         </thead>
@@ -85,7 +84,7 @@ echo $html;
 
 ?>
 
-<body>
+<body class="bg">
     <?php
     $list = get();
     $selectedMovieID = [];
@@ -106,7 +105,7 @@ echo $html;
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $MovieName ?></h5>
                         <p class="card-text"><?php echo $Description ?></p>
-                        <p class="card-text"><small class="text-muted"> <a href="movieInfo.php?id=<?php echo $MovieID ?>">Click here to know more detail</a> </small></p>
+                        <p class="card-text"><small class="text-muted"> <a href="movieInfo.php?id=<?php echo $MovieID?>">Click here to know more detail</a> </small></p>
                     </div>
                 </div>
             </div>

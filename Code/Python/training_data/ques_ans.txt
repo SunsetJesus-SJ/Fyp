@@ -2,11 +2,5 @@ What is movie?
 A film, also called a movie, motion picture or moving picture, is a work of visual art that simulates experiences and otherwise communicates ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images. These images are generally accompanied by sound, and more rarely, other sensory stimulations.
 What is a movie?
 A film, also called a movie, motion picture or moving picture, is a work of visual art that simulates experiences and otherwise communicates ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images. These images are generally accompanied by sound, and more rarely, other sensory stimulations.
-Where can I find more information about movie?
-You can search for more information on search movie page <a href="searchMovie.php">here</a>.
-How can I buy a ticket for movie?
-You can go to the movie info page, then click the buy button.
-How can I watch a movie?
-You can buy a ticket.
-How to buy ticket?
-You can go to the movie info page, then click the buy button.
+How to become member?
+You can go to register page, then input some personal information.

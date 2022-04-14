@@ -40,7 +40,6 @@ function get(){
     $list = getMovieByActor($actName);
     $html = <<<EOD
     <table class="table table-success table-striped">
-        <legend>Actor: {$actName}</legend>
         <thead>
         <tr>
             <th scope="col">Actor Name</th>
@@ -55,7 +54,11 @@ echo $html;
 
 ?>
 
-<body>
+<body class="bg">
+    <?php
+    include '../HTML/navigation_bar.php';
+    ?>
+
     <?php
     $list = get();
     $selectedMovieID = [];
@@ -80,11 +83,8 @@ echo $html;
                     <img src="<?php echo $Image ?>" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <h5 class="card-title"><?php echo $MovieName ?></h5>
-                        <p class="card-text"><?php echo $Description ?></p>
-                        <p class="card-text"><small class="text-muted"> <a href="movieInfo.php?id=<?php echo $MovieID ?>">Click here to know more detail</a> </small></p>
-                        
                         <?php
                             $actors = getMovieActor($MovieID);
                             $actorsList = [];
@@ -103,6 +103,10 @@ echo $html;
                                 }
                             }
                         ?>
+                        <p class="card-text"><?php echo $Description ?></p>
+                        <p class="card-text"><small class="text-muted"> <a class="btn btn-info" role="button" href="movieInfo.php?id=<?php echo $MovieID?>">Click here to know more detail</a> </small></p>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -114,6 +118,9 @@ echo $html;
         }
     }
     ?>
+        <?php
+include('chatbot.html');
+?>
 
 </body>
 
