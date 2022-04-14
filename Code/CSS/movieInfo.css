@@ -1,5 +1,7 @@
 body{
-  background-color: rgb(60, 60, 60);
+  background-image: url(../img/bg2.jpg);
+  padding: 10px;
+  margin-top: 140px;
 }
 
 .flex{
@@ -41,22 +43,35 @@ body{
   color: white;
 }
 
+.Main h1{
+  font-style: italic;
+  font-weight: bold;
+}
+
+.Main p, .actorHeader{
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
 .Main .tags{
   margin: 2px;
 }
 
 .Main_left{
   border: 1px solid white;
+  border-radius: 8px;
   width: 75%;
-
   margin: 5px;
 }
 
 .Main_right{
   justify-self: end;
   border: 1px solid white;
+  border-radius: 8px;
   width: 20%;
-
+  font-style: italic;
+  font-weight: bold;
   float: right;
   margin: 5px;
 }
@@ -67,6 +82,7 @@ body{
   margin: 5px;
   padding: 5px;
   border: 1px solid white;
+  border-radius: 8px;
 }
 
 .casting{
@@ -78,10 +94,12 @@ body{
   margin-left: 4.5vw;
   width: 90vw;
   color: white;
+  border-radius: 8px;
 }
 
 .cast_left{
   border: 1px solid white;
+  border-radius: 8px;
   width: 75%;
   height: inherit;
   margin: 5px;
@@ -90,10 +108,15 @@ body{
 .cast_right{
   justify-self: end;
   border: 1px solid white;
+  border-radius: 8px;
   width: 20%;
   height: inherit;
   float: right;
   margin: 5px;
+  padding: 5px;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
 }
 
 .cast_left div {
@@ -102,6 +125,7 @@ body{
   margin: 5px;
   padding: 5px;
   border: 1px solid white;
+  border-radius: 8px;
 }
 
 h1{
@@ -155,7 +179,8 @@ h1{
 .actbtn {
   appearance: none;
   background-color: transparent;
-  border: 2px solid white;
+  border: 2px solid lightyellow;
+  border-radius: 8px;
   box-sizing: border-box;
   color: white;
   cursor: pointer;
@@ -195,3 +220,55 @@ h1{
   transform: translateY(0);
 }
 
+.userAction {
+  display: flex;
+  flex-wrap: wrap;
+  height: max-content;
+  border: 1px solid white;
+  width: 60%;
+  margin: 5px 20%;
+  color: white;
+}
+
+.btn-secondary {
+  display: inline-block;
+  width: auto;
+  margin: 40px 0 0;
+  padding: 40px 0 0;
+  font-size: 18px;
+  border-top: 10px dashed #eee;
+  text-align: center;
+}
+.btn-secondary {
+  display: block;
+  margin: 5px;
+  text-align: center;
+  background: gray;
+  border-radius: 3px;
+  box-shadow: 0 10px 20px -8px gray;
+  padding: 10px 17px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.btn-secondary:hover {
+  transform: translateY(-3px);
+}
+.btn-secondary .fa {
+  margin-right: 5px;
+}
+.animate-like {
+animation-name: likeAnimation;
+animation-iteration-count: 1;
+animation-fill-mode: forwards;
+animation-duration: 0.55s;
+}
+@keyframes likeAnimation {
+0%   { transform: scale(15); }
+100% { transform: scale(1); }
+}

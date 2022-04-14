@@ -74,6 +74,35 @@ function getMovieByActor($actName){
     return $rs1;
 }
 
+function getMovieByName($movieName){
+    $conn =  getDBconnection();
+    $sql = 'SELECT DISTINCT movie.MovieID,movie.MovieName,movie.Description,movie.Image,movie.video_url FROM movie INNER JOIN movierate INNER JOIN languagestable INNER JOIN movietype INNER JOIN versiontable WHERE movie.MovieRating = movierate.RateID AND movie.MovieName = "'. $movieName .'"';
+    $rs1 = mysqli_query($conn, $sql) or die('<div>SQL command fail</br>' . mysqli_error($conn) . '</div>');
+    $num = mysqli_num_rows($rs1);
+    if ($num == 0) {
+        echo "Number of records selected = $num <br>";
+    } else {
+        closeDBconnection($conn);
+        return $rs1;
+    }
+    return $rs1;
+}
+
+function getNewMovie(){
+    $conn =  getDBconnection();
+    $sql = 'SELECT * FROM movie WHERE ReleaseDate <= CURDATE() ORDER BY ReleaseDate DESC LIMIT 5';
+    $rs1 = mysqli_query($conn, $sql) or die('<div>SQL command fail</br>' . mysqli_error($conn) . '</div>');
+    $num = mysqli_num_rows($rs1);
+    if ($num == 0) {
+        echo "Number of records selected = $num <br>";
+    } else {
+        closeDBconnection($conn);
+        return $rs1;
+    }
+    return $rs1;
+    
+}
+
 function search($movieName, $year, $month, $movieRating, $type, $Duration, $Version, $Languages)
 {
     $conn =  getDBconnection();

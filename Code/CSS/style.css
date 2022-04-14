@@ -10,14 +10,12 @@
   box-sizing: border-box;
 }
 
-
-
 .msger {
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
   width: 100%;
-  max-width: 867px;
+  max-width: 800px;
   margin: 25px 10px;
   height: calc(100% - 50px);
   border: var(--border);
@@ -188,7 +186,7 @@
     right: 20px;
     bottom: 100px;
     width: auto;
-    height: 70%;
+    height: 65%;
     background-color: #fff;
     border-radius: 5px;
     opacity: 0;
@@ -199,13 +197,7 @@
     opacity: 1
 }
 
-.header {
-    padding: 13px;
-    background-color: blue;
-    border-radius: 5px 5px 0px 0px;
-    margin-bottom: 10px;
-    color: #fff
-}
+
 
 .chat-form {
     padding: 15px

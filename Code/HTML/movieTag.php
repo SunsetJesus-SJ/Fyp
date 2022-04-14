@@ -40,7 +40,6 @@ function get(){
     $list = getMovieByTag($tag);
     $html = <<<EOD
     <table class="table table-success table-striped">
-        <legend>Tag: {$tag}</legend>
         <thead>
         <tr>
             <th scope="col">Tag</th>
@@ -61,7 +60,10 @@ echo $html;
 
 ?>
 
-<body>
+<body class="bg">
+<?php
+    include '../HTML/navigation_bar.php';
+    ?>
     <?php
     $list = get();
     $selectedMovieID = [];
@@ -86,11 +88,8 @@ echo $html;
                     <img src="<?php echo $Image ?>" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $MovieName ?></h5>
-                        <p class="card-text"><?php echo $Description ?></p>
-                        <p class="card-text"><small class="text-muted"> <a href="movieInfo.php?id=<?php echo $MovieID ?>">Click here to know more detail</a> </small></p>
-                        
+                    <div class="card-body text-center">
+                        <h5 class="card-title "><?php echo $MovieName ?></h5>
                         <?php
                             $tags = getMovieTag($MovieID);
                             $tag = [];
@@ -109,6 +108,10 @@ echo $html;
                                 }
                             }
                         ?>
+                        <p class="card-text "><?php echo $Description ?></p>
+                        <p class="card-text "><small class="text-muted"> <a class="btn btn-info" role="button" href="movieInfo.php?id=<?php echo $MovieID?>">Click here to know more detail</a> </small></p>
+                        
+                        
                     </div>
                 </div>
             </div>

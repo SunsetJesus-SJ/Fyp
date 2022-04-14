@@ -14,6 +14,13 @@
         mysqli_close($conn);
     }
 
+    function redirect($url) {
+      ob_start();
+      header('Location: '.$url);
+      ob_end_flush();
+      die();
+    }
+
     $conn =  getDBconnection();
     $movieName = mysqli_real_escape_string($conn, $_POST['movieName']);
     $type = mysqli_real_escape_string($conn, $_POST['type']);
@@ -73,13 +80,17 @@
       }
       $img = $target_file;
     $sql = "INSERT INTO movie (MovieID, MovieName, Type, MovieRating, Version, Languages, ReleaseDate, Duration, Description, Image, Director, video_url) VALUES 
-    (NULL, '{$movieName}', '{$type}', '{$version}', '{$rate}', '{$language}', '{$releaseDate}', '{$Duration}', '{$description}', '{$img}', '{$director}', '{$ytUrl}')";
+    (NULL, '{$movieName}', '{$type}', '{$rate}', '{$version}', '{$language}', '{$releaseDate}', '{$Duration}', '{$description}', '{$img}', '{$director}', '{$ytUrl}')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
+        $last_id = $conn->insert_id;
+        closeDBconnection($conn);
+        redirect("../HTML/movieReference.php"."?movieID=".$last_id);
+        
     } else {
         echo "<br>Error: " . $sql . "<br>" . $conn->error;
+        closeDBconnection($conn);
     }
-    closeDBconnection($conn);
     
     
 ?>

@@ -16,7 +16,7 @@
 
     function getMovieInfoJson($ID = 1){
         $conn =  getDBconnection();
-        $sql = "SELECT movie.MovieName,movie.Description,movie.Image,movie.Director,movie.video_url,movierate.MovieRate,languagestable.Languages,languagestable.Subtitle,movietype.Type,movie.Duration,versiontable.Version FROM movie INNER JOIN movierate INNER JOIN languagestable INNER JOIN movietype INNER JOIN versiontable WHERE movie.MovieID = $ID AND movie.MovieRating = movierate.RateID AND movie.Languages = languagestable.LanguagesID AND movie.Type = movietype.TypeID AND versiontable.VersionID = movie.Version";
+        $sql = "SELECT movie.MovieID,movie.MovieName,movie.Description,movie.Image,movie.Director,movie.video_url,movierate.MovieRate,languagestable.Languages,languagestable.Subtitle,movietype.Type,movie.Duration,versiontable.Version FROM movie INNER JOIN movierate INNER JOIN languagestable INNER JOIN movietype INNER JOIN versiontable WHERE movie.MovieID = $ID AND movie.MovieRating = movierate.RateID AND movie.Languages = languagestable.LanguagesID AND movie.Type = movietype.TypeID AND versiontable.VersionID = movie.Version";
         $rs1 = mysqli_query($conn,$sql) or die ('<div>SQL command fail</br>' + mysqli_error($conn) +  '</div>');
         $num = mysqli_num_rows($rs1);
         if($num == 0){
@@ -83,6 +83,45 @@
         closeDBconnection($conn);
         return json_encode($tag,JSON_PRETTY_PRINT);
     }
+
+    function getAllActor(){
+        $conn =  getDBconnection();
+        $sql = "SELECT * FROM actor";
+        $rs1 = mysqli_query($conn,$sql) or die ('<div>SQL command fail</br>' . mysqli_error($conn) .  '</div>');
+        $num = mysqli_num_rows($rs1);
+        if($num == 0){
+            echo "Number of records selected = $num <br>";
+        }
+        closeDBconnection($conn);
+        return $rs1;
+    }
+
+    function getAllTags(){
+        $conn =  getDBconnection();
+        $sql = "SELECT * FROM tagtable";
+        $rs1 = mysqli_query($conn,$sql) or die ('<div>SQL command fail</br>' . mysqli_error($conn) .  '</div>');
+        $num = mysqli_num_rows($rs1);
+        if($num == 0){
+            echo "Number of records selected = $num <br>";
+        }
+        closeDBconnection($conn);
+        return $rs1;
+    }
+
+    function getCsvData(){
+        $conn =  getDBconnection();
+        $sql = "SELECT movie.MovieID,movie.MovieName,GROUP_CONCAT(DISTINCT tagtable.TagName),GROUP_CONCAT(DISTINCT actor.actorName) FROM movie INNER JOIN tagtable INNER JOIN movietag INNER JOIN actor INNER JOIN moviecast WHERE movie.MovieID = moviecast.MovieID AND movie.MovieID = movietag.MovieID AND tagtable.TagID = movietag.TagID AND moviecast.actorID = actor.actorID GROUP BY movie.MovieName";
+        $rs1 = mysqli_query($conn,$sql) or die ('<div>SQL command fail</br>' + mysqli_error($conn) +  '</div>');
+        $num = mysqli_num_rows($rs1);
+        if($num == 0){
+            echo "Number of records selected = $num <br>";
+        }else{
+            closeDBconnection($conn);
+            return $rs1;
+        }
+        return $rs1;
+    } 
+    
 
     
 ?>
