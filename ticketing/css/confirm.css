@@ -1,0 +1,234 @@
+body {
+    background-color: black;
+    /* background-color: white; */
+}
+
+#seatform {
+    /* display: none; */
+}
+
+.page {
+    background-color: white;
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    /* border: solid 1px gray; */
+    overflow: hidden;
+}
+
+h2 {
+    color: white;
+}
+
+.label-1 {
+    font-size: 25px;
+    /* text-align: right; */
+    float: right;
+}
+
+.label-2 {
+    font-size: 25px;
+    /* text-align: right; */
+    /* float: left; */
+}
+
+.label-amount {
+    font-size: 40px;
+    float: right;
+}
+
+.red-box {
+    background-color: rgb(255, 0, 0);
+    width: 1%;
+    height: 30px;
+    float: left;
+    /* display: inline-block; */
+    font-size: 30px;
+    /* border: solid 1px gray; */
+
+}
+
+.title {
+    font-size: 30px;
+}
+
+.seatInfo_table {
+    background-color: rgb(109, 108, 108);
+    width: 1001px;
+    height: 50px;
+    margin: auto;
+    /* border: solid 1px black; */
+    overflow: hidden;
+
+}
+
+.Info {
+    width: 1000px;
+    margin: auto;
+    border: solid 1px black;
+    overflow: hidden;
+}
+
+.Info-box {
+    width: 660px;
+    margin: auto;
+    /* border: solid 1px black; */
+    overflow: hidden;
+}
+
+.movie-name {
+    width: 150px;
+    font-size: 25px;
+    /* border: solid 1px black; */
+    overflow: hidden;
+}
+
+
+.Info2-left {
+    /* border: solid 1px black; */
+    float: left;
+}
+
+.Info2-right {
+    /* border: solid 1px black; */
+    float: right;
+    /* margin: auto; */
+   
+   
+}
+
+.payment {
+    width: 660px;
+    height: 50px;
+    margin: auto;
+    /* border: solid 1px black; */
+    /* display: inline-block; */
+    /* overflow: hidden; */
+}
+
+.payment-method {
+    width: 660px;
+    height: 50px;
+    margin: auto;
+    border: solid 1px black;
+    overflow: hidden;
+}
+
+.card-info {
+    display: none;
+    width: 660px;
+    height: 500px;
+    margin: auto;
+    /* border: solid 1px black; */
+    overflow: hidden;
+}
+
+#visa {
+    width: 65px;
+    height: 40px;
+}
+
+#mastercard {
+    width: 65px;
+    height: 40px;
+}
+
+#credit-id {
+    width: 50%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#credit-info, select {
+    width: 20%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.ticketID {
+    /* display: none; */
+}
+
+.seatType {
+    /* display: none; */
+}
+
+.total-amount {
+    background-color: rgb(224, 221, 221);
+    width: 660px;
+    height: 60px;
+    /* height: 100px; */
+    margin: auto;
+    /* border: solid 1px black; */
+    /* overflow: hidden; */
+}
+
+.display-price {
+    float: right;
+    font-size: 50px;
+}
+
+.confirm-amount {
+    /* background-color: rgb(12, 153, 12); */
+    color: rgb(243, 220, 220);
+    width: 660px;
+    height: 50px;
+    margin: auto;
+    /* border: solid 1px black; */
+}
+
+.confirm-btn {
+    background-color: rgb(12, 153, 12);
+    width: 35%;
+    height: 50px;
+    float: right;
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+}
+
+.confirm-btn:hover {
+    background-color: rgb(138, 236, 138);
+    color: black;
+}
+
+/* .price {
+    background-color: red;
+    color: red;
+} */
+
+#back-btn {
+    background-color: rgb(172, 172, 172);
+    border: 0px;
+}
+
+#back-btn:hover{
+    background-color: rgb(201, 201, 201);
+}
+
+#next-btn {
+    background-color: rgb(65, 65, 65);
+    color: white;
+    border: 0px;
+}
+
+#next-btn:hover{
+    background-color: rgb(172, 172, 172);
+}
+
+
+.seat {
+    font-size: 30px;
+}
+
+
+
+
+

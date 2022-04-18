@@ -1,0 +1,88 @@
+.screen {
+    width: 100%;
+    height: 70px;
+    background: #fff;
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+
+.show_screen {
+    width: 600px;
+    margin: 50px auto;
+    overflow: hidden;
+
+}
+
+#screen {
+    text-align: center;
+    font-size: 40px;
+    color: black;
+}
+
+.show_seat {
+    width: 400px;
+    margin: 50px auto;
+    /* border: solid 1px gray; */
+    overflow: hidden;
+}
+
+.seat_left {
+    /* border: solid 1px gray; */
+    float: left;
+}
+
+.seat_right {
+    /* border: solid 1px gray; */
+    float: right;
+}
+
+.seatbox {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border: 0px solid white;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+    background-color: gray;
+    text-align: center;
+    line-height: 30px;
+    display: inline-block;
+    /* display: block; */
+
+    /* width: 30px;
+    height: 28px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #777;
+    margin: 5px;
+    display: inline-block; */
+}
+
+#occupied {
+    /* background:rgb(245, 7, 7); */
+    /* background-color: #9DEE99; */
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border: 0px solid white;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+    background-color: #F8731E;
+    text-align: center;
+    line-height: 30px;
+    display: inline-block;
+    
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.seatbox:hover {
+    border: 1px solid white;
+}
+
+
+
+#seatTable{
+    display: none;
+}
