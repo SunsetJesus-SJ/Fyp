@@ -88,7 +88,7 @@
             <div class="box">
                 <!-- img-box -->
                 <div class="slide-img">
-                    <img src="images/movie_2.jpg" alt="1">
+                    <img src="images/fgo_img1.jfif" alt="1">
 
 
                 </div>
@@ -96,7 +96,7 @@
                 <div class="detail-box">
 
                     <div class="type">
-                        <a href="#">Spider man</a>
+                        <a href="http://127.0.0.1/FPY_new/Fyp/ticketing/schedule_2.php">Fate/kaleid liner </a>
                         
 
                     </div>
