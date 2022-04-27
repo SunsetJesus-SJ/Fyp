@@ -1,0 +1,66 @@
+
+.bg {
+    background-image: url(../img/bg2.jpg);
+    padding: 10px;
+    margin-top: 140px;
+}
+
+#searchBox {
+    width: 48vw;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    margin-top: 20px;
+    height: 50px;
+}
+
+.accordion {
+    width: 85vw;
+    margin-top: 30px;
+    margin-left: 5vw;
+}
+
+.movieRating input[type=text] {
+    text-align: center;
+}
+
+.card {
+    background-image: url(../img/bg.jpg);
+    font-size: 1.2em;
+    width: 80vw;
+    margin-top: 30px;
+    margin-left: 10vw;
+    margin-right: 5vw;
+}
+
+.card-title {
+    font-style: italic;
+}
+
+.card img,col-md-4 {
+    min-width: 300px;
+    width: 300px;
+    height: 400px;
+    margin: 10px;
+    
+}
+
+.card .text-center{
+    margin: 10px;
+}
+
+.text-center {
+    margin-top: 5px;
+}
+
+.card a{
+    margin: 20px;
+}
+
+th{
+    font-style: italic;
+}
+
+.reMsg{
+    font-style: italic;
+    font-weight: bold;
+}

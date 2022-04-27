@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Room with MovieBot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.msger').hide();
+      $("#check").change(function () {
+        if($('#check').prop('checked')) {
+            $('.msger').show();
+        } else {
+            $('.msger').hide();
+        }
+      });
+    });
+  </script>
+</head>
+
+
+<body>
+  <!-- partial:index.partial.html -->
+
+
+<input type="checkbox" id="check"> <label class="chat-btn" for="check"> <i class="fa fa-comments comment"></i> <i class="fa fa-times close"></i> </label>
+
+    <section class="msger wrapper">
+    <header class="msger-header">
+      <div class="msger-header-title">
+        <i class="fa-regular fa-message-bot"></i> Movie Chatbot <i class="fa-regular fa-message-bot"></i>
+      </div>
+    </header>
+
+    <main class="msger-chat">
+      <div class="msg left-msg">
+        <div class="msg-img" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2040/2040946.png');"></div>
+
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">MovieBot</div>
+            <div class="msg-info-time"><span id="datetime"></span></div>
+          </div>
+
+          <div class="msg-text">
+            Hi, welcome to MovieBot! Go ahead and send me a message. 😄
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <form class="msger-inputarea">
+      <input type="text" class="msger-input" id="textInput" placeholder="Enter your message...">
+      <button type="submit" class="msger-send-btn">Send</button>
+    </form>
+  </section>
+
+
+
+  <script>
+  var dt = new Date();
+  var time  = dt. getHours() + ":" + dt. getMinutes();
+  document.getElementById("datetime").innerHTML = time;
+  </script>
+  <!-- partial -->
+  <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
+  <script>
+
+    const msgerForm = get(".msger-inputarea");
+    const msgerInput = get(".msger-input");
+    const msgerChat = get(".msger-chat");
+
+
+    const BOT_IMG = "https://cdn-icons-png.flaticon.com/512/2040/2040946.png";
+    const PERSON_IMG = "https://cdn-icons-png.flaticon.com/512/1077/1077114.png";
+    const BOT_NAME = "MovieBot";
+    const PERSON_NAME = "You";
+
+    msgerForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const msgText = msgerInput.value;
+      if (!msgText) return;
+
+      appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+      msgerInput.value = "";
+      botResponse(msgText);
+    });
+
+    function appendMessage(name, img, side, text) {
+      //   Simple solution for small apps
+      const msgHTML = `
+<div class="msg ${side}-msg">
+  <div class="msg-img" style="background-image: url(${img})"></div>
+
+  <div class="msg-bubble">
+    <div class="msg-info">
+      <div class="msg-info-name">${name}</div>
+      <div class="msg-info-time">${formatDate(new Date())}</div>
+    </div>
+
+    <div class="msg-text">${text}</div>
+  </div>
+</div>
+`;
+
+      msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+      msgerChat.scrollTop += 500;
+    }
+
+    function botResponse(rawText) {
+
+      // Bot Response
+      $.get("http://127.0.0.1:5000/get", { msg: rawText }).done(function (data) {
+        console.log(rawText);
+        console.log(data);
+        const msgText = data;
+        appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
+
+      });
+
+    }
+
+
+    // Utils
+    function get(selector, root = document) {
+      return root.querySelector(selector);
+    }
+
+    function formatDate(date) {
+      const h = "0" + date.getHours();
+      const m = "0" + date.getMinutes();
+
+      return `${h.slice(-2)}:${m.slice(-2)}`;
+    }
+
+
+
+  </script>
+
+
+
+</body>
+
+</html>
