@@ -85,6 +85,9 @@ echo $html;
 ?>
 
 <body class="bg">
+<?php
+    include '../HTML/navigation_bar.php';
+    ?>
     <?php
     $list = get();
     $selectedMovieID = [];
@@ -104,8 +107,8 @@ echo $html;
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $MovieName ?></h5>
+                        <p class="card-text"><small class="text-muted"> <a class="btn btn-info" role="button" href="movieInfo.php?id=<?php echo $MovieID?>">Click here to know more detail</a> </small></p>
                         <p class="card-text"><?php echo $Description ?></p>
-                        <p class="card-text"><small class="text-muted"> <a href="movieInfo.php?id=<?php echo $MovieID?>">Click here to know more detail</a> </small></p>
                     </div>
                 </div>
             </div>
